@@ -1,0 +1,13 @@
+.custom-navbar {
+    height: 80px; 
+    padding: 10px 20px;
+    box-shadow: 1px 2px 20px gray ; 
+ }
+
+.header-logo {
+    width: 10em;
+ }
+
+.margin-t-5em {
+   margin-top: 5em;
+ }
