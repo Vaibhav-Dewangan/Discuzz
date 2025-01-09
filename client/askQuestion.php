@@ -18,6 +18,6 @@
             ?>
         </div>
 
-        <button type="submit" name="submit" class="btn btn-primary">submit</button>
+        <button type="submit" name="askQue" class="btn btn-primary">Ask question</button>
     </form>
 </div>
