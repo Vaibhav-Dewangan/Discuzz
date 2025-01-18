@@ -45,11 +45,11 @@ session_start();
         <?php } ?>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Latest questions</a>
+          <a class="nav-link" href="?latest=true">Latest questions</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <form action="" class="d-flex" >
+        <input class="form-control me-2" type="search" name="search_input" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>

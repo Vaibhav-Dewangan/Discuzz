@@ -14,8 +14,9 @@
                 $id = $row['id'];
                 echo "
             <a  href='?q-id=$id' class='text-decoration-none'>
-             <div class='p-2 px-4  border bg-light rounded m-3 '>
+             <div class='p-2 px-4 d-flex justify-content-between  border bg-light rounded m-3 '>
                  <h5 class=' text-black'>$title</h5>
+                 <a href='./server/requests.php?delete=$id' class='btn btn-outline-danger btn-sm'>Delete</a>
              </div>
             </a>";
             }
@@ -31,6 +32,7 @@
             <a  href='?q-id=$id' class='text-decoration-none'>
              <div class='p-2 px-4  border bg-light rounded m-3 '>
                  <h5 class=' text-black'>$title</h5>
+                   <a href='./server/requests.php?delete=$id' class='btn btn-outline-danger btn-sm'>Delete</a>
              </div>
             </a>";
             }

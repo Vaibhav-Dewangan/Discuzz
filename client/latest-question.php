@@ -3,29 +3,9 @@
         <h2 class="text-center">Questions</h2>
         <?php
         include('./common/db.php');
-        if(empty($search)){
-            $query = "SELECT * FROM `questions`";
-        } else{
-            $query = "SELECT * FROM `questions` WHERE title LIKE '%$search%' ";
-        };
-        
+        $query = "SELECT * FROM `questions` ORDER BY `id` DESC";
         $result = $conn->query($query);
-        if ($result->num_rows >= 1 && !isset($_GET['category'])) {
-            foreach ($result as $row) {
-                $title = $row['title'];
-                $description = $row['description'];
-                $category = $row['category'];
-                $id = $row['id'];
-                echo "
-            <a  href='?q-id=$id' class='text-decoration-none'>
-             <div class='p-2 px-4  border bg-light rounded m-3 '>
-                 <h5 class=' text-black'>$title</h5>
-             </div>
-            </a>";
-            }
-        }else if($result->num_rows >= 1 && isset($_GET['category'])) {
-            $query = "SELECT * FROM `questions` WHERE category='$category_url'";
-            $result = $conn->query($query);
+        if ($result->num_rows >= 1 && !isset($_GET['latest/category'])) {
             foreach ($result as $row) {
                 $title = $row['title'];
                 $description = $row['description'];
@@ -39,10 +19,20 @@
             </a>";
             }
         } else {
-            echo "
-            <div class='d-flex align-items-center justify-content-center bg-light mt-3 h-75 rounded '>
-                <h5 class=' text-black text-center mt-auto mb-auto'>No question found </h5>
-            </div>";
+            $query = "SELECT * FROM `questions` WHERE category='$latest_category_url' ORDER BY `id` DESC";
+            $result = $conn->query($query);
+            foreach ($result as $row) {
+                $title = $row['title'];
+                $description = $row['description'];
+                $category = $row['category'];
+                $id = $row['id'];
+                echo "
+            <a  href='?q-id=$id' class='text-decoration-none'>
+             <div class='p-2 px-4  border bg-light rounded m-3 '>
+                 <h5 class=' text-black'>$title</h5>
+             </div>
+            </a>";
+            }
         }
         ?>
     </div>
@@ -59,7 +49,7 @@
                 $id = $row['id'];
                 echo "
                 <div class='border bg-light rounded p-1 px-4 m-3 mx-5'>
-                    <a href='?category=$name_url' class='text-decoration-none'><h5 class='text-center text-primary '>$name</h5></a>
+                    <a href='?latest/category=$name_url' class='text-decoration-none'><h5 class='text-center text-primary '>$name</h5></a>
                 </div>";
             }
         }

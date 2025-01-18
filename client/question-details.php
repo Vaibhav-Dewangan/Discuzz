@@ -17,7 +17,7 @@
         ?>
         <form action='./server/requests.php' method='post'>
             <input type="hidden" name="question_id" value="<?php echo $qid ?>">
-            <textarea name='answer' id='answer' placeholder='Your answer' class='form-control w-50 mb-3 '></textarea>
+            <textarea name='answer' id='answer' placeholder='Your answer' class='form-control w-75 mb-3 '></textarea>
             <button type='submit' name='answer-submit' class='btn btn-primary'>Submit Your Answer</button>
         </form>
 
@@ -48,8 +48,8 @@
             $id = $row['id'];
             echo "
         <a  href='?q-id=$id' class='text-decoration-none'>
-         <div class='p-2 px-4  border bg-light rounded my-3 '>
-             <h5 class=' text-black'>$title</h5>
+         <div class='py-2 px-4  border bg-light rounded my-3 '>
+             <h5 class=' text-black '>$title</h5>
          </div>
         </a>";
         }

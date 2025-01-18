@@ -88,3 +88,16 @@ if (isset($_POST['answer-submit'])) { // Answer Submit
         echo "Not Submited!";
     }
 }
+
+if(isset($_GET['delete'])){
+    $id = $_GET['delete'];
+    $delete = $conn->prepare("DELETE FROM `questions` WHERE id = '$id'");
+    $result = $delete->execute();
+    if ($result) {
+        echo "Deleted!";
+        header("location:/discuzz/?myQue=true");
+    } else {
+        echo "Not Deleted!";
+    }
+   
+};
