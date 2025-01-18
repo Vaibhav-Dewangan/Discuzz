@@ -7,8 +7,8 @@
         </div>
 
         <div class="mb-3 ">
-            <label for="discription" class="form-label">Discription</label>
-            <textarea type="text" name="discription" required class="form-control" id="discription" placeholder="Enter discription"></textarea>
+            <label for="description" class="form-label">Discription</label>
+            <textarea type="text" name="description" required class="form-control" id="description" placeholder="Enter description"></textarea>
         </div>
 
         <div class="mb-3 ">

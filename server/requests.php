@@ -16,7 +16,7 @@ if (isset($_POST['signup'])) { //Signup
 
     if ($result) {
         echo 'New user registered!';
-        $_SESSION["user"] = ["username" => $username, "email" => $email, "user_id"=> $user->insert_id];
+        $_SESSION["user"] = ["username" => $username, "email" => $email, "user_id" => $user->insert_id];
         header("location:/discuzz/?login=true");
     } else {
         echo 'User registration failed!';
@@ -39,7 +39,7 @@ if (isset($_POST['login'])) { //Login
             $user_id = $row['id'];
         }
         echo ('Hi,' . $username . 'Login successfull!');
-        $_SESSION["user"] = ["username" => $username, "email" => $email, "user_id"=> $user_id];
+        $_SESSION["user"] = ["username" => $username, "email" => $email, "user_id" => $user_id, "islogin"=>true];
         header("location:/discuzz");
     } else {
         echo 'Login failed!';
@@ -52,25 +52,39 @@ if (isset($_GET['logout'])) { //Logout
     exit();
 }
 
-if(isset($_POST['askQue'])){ //Ask Question
+if (isset($_POST['askQue'])) { //Ask Question
     $title = $_POST['title'];
-    $discription = $_POST['discription'];
+    $description = $_POST['description'];
     $category = $_POST['category'];
     $user_id = $_SESSION['user']['user_id'];
-    
-    $question = $conn->prepare("INSERT INTO `questions`(`id`, `title`, `discription`, `user_id`, `category`)
-    VALUES (NULL, '$title', '$discription', ' $user_id', '$category' )");
 
-    $result = $question->execute(); 
-    if($result){
+    $question = $conn->prepare("INSERT INTO `questions`(`id`, `title`, `description`, `user_id`, `category`)
+    VALUES (NULL, '$title', '$description', ' $user_id', '$category' )");
+
+    $result = $question->execute();
+    if ($result) {
         echo "Submited!";
         header("location:/discuzz");
     } else {
         echo "Not Submited!";
     }
-   
-
-
 }
 
-?>
+if (isset($_POST['answer-submit'])) { // Answer Submit
+    $answer = $_POST['answer'];
+    $question_id = $_POST['question_id'];
+    $user_id = $_SESSION['user']['user_id'];
+    $username = $_SESSION['user']['username'];
+
+    $new_answer = $conn->prepare("INSERT INTO `answers`(`id`,`question_id`,`answer`, `user_id`,`username`)
+    VALUES (NULL,?,?,?,?)");
+    $new_answer->bind_param("isis", $question_id, $answer, $user_id, $username);
+
+    $result = $new_answer->execute();
+    if ($result) {
+        echo "Submited!";
+        header("location:/discuzz/?q-id=$question_id");
+    } else {
+        echo "Not Submited!";
+    }
+}

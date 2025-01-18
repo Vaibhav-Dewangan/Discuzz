@@ -11,3 +11,7 @@
 .margin-t-5em {
    margin-top: 5em;
  }
+.question_title {
+   text-decoration:none;
+   color:black;
+}

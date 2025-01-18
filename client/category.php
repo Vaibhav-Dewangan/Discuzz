@@ -8,7 +8,7 @@
         foreach($result as $row){ 
             $name = ucfirst($row['name']);
             $id = $row['id'] ;
-            echo "<option value='$id'>$name</option>";
+            echo "<option key='$id' value='$name'>$name</option>";
         } 
     }
     ?>

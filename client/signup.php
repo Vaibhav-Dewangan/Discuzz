@@ -15,4 +15,5 @@
         </div>
         <button type="submit" name="signup" class="btn btn-primary">Singup</button>
     </form>
+    <a href="?login=true" class="text-danger text-center"><p>Already have an account! Please Login.</p></a>
 </div>

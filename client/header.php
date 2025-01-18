@@ -13,34 +13,37 @@ session_start();
           <a class="nav-link active" aria-current="page" href="./">Home</a>
         </li>
         <?php
-        if (!isset($_SESSION['user']['username'])) { ?>
+        if (!isset($_SESSION['user']['islogin'])) {
+          if (isset($_GET['login'])) { ?>
 
-          <li class="nav-item">
-            <a class="nav-link" href="?login=true">Login</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link text-primary" href="?signup=true">Signup</a>
+            </li>
+          <?php } else { ?>
+            <li class="nav-item">
+              <a class="nav-link text-primary" href="?login=true">Login</a>
+            </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="?signup=true">Signup</a>
-          </li>
-
-        <?php } ?>
+        <?php }
+        } ?>
 
         <?php
-        if (isset($_SESSION['user']['username'])) { ?>
+        if (isset($_SESSION['user']['islogin'])) { ?>
 
           <li class="nav-item">
-          <a class="nav-link text-danger" href="./server/requests.php?logout=true">Logout</a>
+            <a class="nav-link text-danger" href="./server/requests.php?logout=true">Logout</a>
           </li>
 
           <li class="nav-item">
-          <a class="nav-link" href="?askQue=true">Ask question</a>
+            <a class="nav-link" href="?askQue=true">Ask question</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="?myQue=true">My question</a>
           </li>
 
         <?php } ?>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">Categories</a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Latest questions</a>
         </li>
