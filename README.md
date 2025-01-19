@@ -9,7 +9,7 @@ Discuzz is a PHP and MySQL-based platform that allows users to log in, ask quest
 - **Answer Questions**: Users can respond to questions posted by other users.
 - **Delete Questions**: Users can delete their own questions.
 - **Search**: Users can search for the latest questions or filter questions by their own submissions.
-- **Responsive Design**: The platform is currently responsive for laptop screens.
+- **Responsive Design**: The platform is responsive for all screens.
 
 ## Technologies Used
 
