@@ -1,4 +1,4 @@
-<div class="container margin-t-5em w-50">
+<div class="container margin-t-5em form-css font-size">
     <h2 class="mb-3 text-center">Login</h2>
     <form action="./server/requests.php" method="post">
         <div class="mb-3 ">
@@ -10,7 +10,12 @@
             <label for="password" class="form-label">Password</label>
             <input type="password" name="password" required class="form-control" id="password" placeholder="Enter password">
         </div>
-        <button type="submit" name="login" class="btn btn-primary">Login</button>
+        <a href="?signup=true" class="text-danger text-center">
+            <p>New user! Please signup first.</p>
+        </a>
+        <div class="buttons">
+            <button type="submit" name="login" class="btn btn-primary">Login</button>
+        </div>
     </form>
-    <a href="?signup=true" class="text-danger text-center"><p>New user! Please signup first.</p></a>
+
 </div>
