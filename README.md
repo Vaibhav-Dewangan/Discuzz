@@ -1,6 +1,6 @@
 # Discuzz
 
-Discuzz is a PHP and MySQL-based platform that allows users to log in, ask questions, answer questions from other users, delete their own questions, and search for the latest questions or their own. The project is designed to facilitate a community-driven question-and-answer experience.
+Discuzz is a PHP and MySQL-based project that allows users to log in, ask questions, answer questions from other users, delete their own questions, and search for the latest questions or their own. The project is designed to facilitate a community-driven question-and-answer experience.
 
 ## Features
 
